@@ -1,0 +1,109 @@
+<view class="login-page">
+  <!-- Logo区域 -->
+  <view class="logo-section">
+    <image class="logo" src="/images/icons/service.png" mode="aspectFit"/>
+    <text class="app-name">春辉综合服务部</text>
+    <text class="app-slogan">本地生活服务，一站式解决</text>
+  </view>
+
+  <!-- 登录方式切换 -->
+  <view class="login-type-tabs">
+    <view 
+      class="tab-item {{loginType === 'wx' ? 'active' : ''}}" 
+      data-type="wx"
+      bindtap="onSwitchType"
+    >
+      <text>微信一键登录</text>
+    </view>
+    <view 
+      class="tab-item {{loginType === 'phone' ? 'active' : ''}}" 
+      data-type="phone"
+      bindtap="onSwitchType"
+    >
+      <text>手机号登录</text>
+    </view>
+  </view>
+
+  <!-- 微信登录 -->
+  <view class="login-form" wx:if="{{loginType === 'wx'}}">
+    <button 
+      class="wx-login-btn"
+      open-type="getPhoneNumber"
+      bindgetphonenumber="onGetPhoneNumber"
+      loading="{{loading}}"
+    >
+      <text class="wx-icon">微信</text>
+      <text>微信授权登录</text>
+    </button>
+
+    <button 
+      class="wx-login-btn outline"
+      bindtap="onWxLogin"
+      loading="{{loading}}"
+    >
+      <text>仅使用基础功能</text>
+    </button>
+
+    <view class="tips">
+      <text>授权登录后可享受完整服务</text>
+    </view>
+  </view>
+
+  <!-- 手机号登录 -->
+  <view class="login-form" wx:if="{{loginType === 'phone'}}">
+    <view class="input-group">
+      <text class="input-label">手机号</text>
+      <input 
+        class="input-field"
+        type="number"
+        maxlength="11"
+        placeholder="请输入手机号"
+        value="{{phone}}"
+        bindinput="onPhoneInput"
+      />
+    </view>
+
+    <view class="input-group code-group">
+      <text class="input-label">验证码</text>
+      <input 
+        class="input-field"
+        type="number"
+        maxlength="6"
+        placeholder="请输入验证码"
+        value="{{code}}"
+        bindinput="onCodeInput"
+      />
+      <button 
+        class="code-btn {{counting ? 'disabled' : ''}}"
+        bindtap="onSendCode"
+        disabled="{{counting}}"
+      >
+        {{counting ? countDown + 's' : '获取验证码'}}
+      </button>
+    </view>
+
+    <button 
+      class="submit-btn"
+      bindtap="onPhoneLogin"
+      loading="{{loading}}"
+    >
+      登录
+    </button>
+  </view>
+
+  <!-- 用户协议 -->
+  <view class="protocol-section">
+    <checkbox-group bindchange="onAgreeChange">
+      <label class="protocol-label">
+        <checkbox value="agree" color="#43A047"/>
+        <text class="protocol-text">我已阅读并同意</text>
+      </label>
+    </checkbox-group>
+    <text class="protocol-link" bindtap="onViewProtocol">《用户协议》和《隐私政策》</text>
+  </view>
+
+  <!-- 底部提示 -->
+  <view class="footer-tips">
+    <text>未注册的手机号验证后将自动创建账号</text>
+  </view>
+</view>

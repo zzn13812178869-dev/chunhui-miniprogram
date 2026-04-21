@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/login/login",
     "pages/index/index",
     "pages/services/services",
     "pages/mine/mine",
@@ -7,6 +8,8 @@
     "pages/orderCreate/orderCreate",
     "pages/orderDetail/orderDetail",
     "pages/orders/orders",
+    "pages/review/review",
+    "pages/payResult/payResult",
     "pages/chat/chat",
     "pages/chatList/chatList",
     "pages/searchResult/searchResult",
@@ -23,7 +26,13 @@
     "pages/orderManage/orderManage",
     "pages/postManage/postManage",
     "pages/withdrawManage/withdrawManage",
-    "pages/bannerManage/bannerManage"
+    "pages/bannerManage/bannerManage",
+    "pages/newsList/newsList",
+    "pages/newsDetail/newsDetail",
+    "pages/mapSelect/mapSelect",
+    "pages/history/history",
+    "pages/customerService/customerService",
+    "pages/about/about"
   ],
   "window": {
     "backgroundTextStyle": "dark",

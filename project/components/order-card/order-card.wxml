@@ -1,0 +1,25 @@
+<view class="order-card" bindtap="onTapCard">
+  <view class="order-header">
+    <text class="order-id">订单号: {{orderId}}</text>
+    <text class="order-status {{statusMap[status].class}}">{{statusText || statusMap[status].text}}</text>
+  </view>
+  <view class="order-body">
+    <image class="product-image" src="{{productImage}}" mode="aspectFill" bindtap="onTapImage" lazy-load />
+    <view class="product-info">
+      <text class="product-name">{{productName}}</text>
+      <view class="product-meta">
+        <text class="product-price">¥{{price}}</text>
+        <text class="product-quantity">x{{quantity}}</text>
+      </view>
+    </view>
+  </view>
+  <view class="order-footer">
+    <text class="order-time">{{createTime}}</text>
+    <text class="order-total">合计: ¥{{totalAmount || price * quantity}}</text>
+  </view>
+  <view class="order-actions" wx:if="{{status === 'pending' || status === 'shipped'}}">
+    <view class="action-btn default" data-action="detail" bindtap="onTapAction">查看详情</view>
+    <view class="action-btn primary" wx:if="{{status === 'pending'}}" data-action="pay" bindtap="onTapAction">立即付款</view>
+    <view class="action-btn primary" wx:if="{{status === 'shipped'}}" data-action="receive" bindtap="onTapAction">确认收货</view>
+  </view>
+</view>

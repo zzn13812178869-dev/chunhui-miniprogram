@@ -1,0 +1,15 @@
+<view class="news-detail-page">
+  <view class="loading-state" wx:if="{{loading}}">
+    <text>加载中...</text>
+  </view>
+  
+  <view class="content" wx:if="{{detail && !loading}}">
+    <text class="news-title">{{detail.title}}</text>
+    <view class="news-meta">
+      <text class="news-time">{{detail.publishTime || detail.createTime}}</text>
+      <text class="news-views">阅读量 {{detail.viewCount || 0}}</text>
+    </view>
+    <image wx:if="{{detail.cover}}" class="news-cover" src="{{detail.cover}}" mode="widthFix"/>
+    <rich-text class="news-body" nodes="{{detail.content}}"/>
+  </view>
+</view>

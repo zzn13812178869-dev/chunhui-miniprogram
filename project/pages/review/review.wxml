@@ -1,0 +1,51 @@
+<view class="container review-page">
+  <!-- 订单摘要 -->
+  <view class="card order-summary" wx:if="{{orderInfo}}">
+    <view class="flex items-center">
+      <image class="service-icon" src="{{orderInfo.serviceIcon || '/images/default-service.png'}}" mode="aspectFill" />
+      <view class="flex-1 ml-md">
+        <text class="text-base font-medium">{{orderInfo.serviceName || '服务项目'}}</text>
+        <text class="text-sm text-secondary mt-xs">{{orderInfo.workerName || '服务人员'}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 评分区域 -->
+  <view class="card rating-section">
+    <text class="section-title">服务态度</text>
+    <view class="rating-row">
+      <star-rating score="{{rating}}" size="large" showScore="{{false}}" bindchange="onRatingChange" />
+      <text class="rating-label" wx:if="{{rating > 0}}">{{ratingLabels[rating]}}</text>
+    </view>
+  </view>
+
+  <!-- 文字评价 -->
+  <view class="card content-section">
+    <text class="section-title">评价内容</text>
+    <textarea
+      class="textarea review-textarea"
+      placeholder="请描述您的服务体验，帮助其他用户了解服务质量（最多200字）"
+      maxlength="{{maxContentLength}}"
+      bindinput="onContentInput"
+      value="{{content}}"
+    />
+    <text class="char-count">{{contentCount}}/{{maxContentLength}}</text>
+  </view>
+
+  <!-- 图片上传 -->
+  <view class="card image-section">
+    <text class="section-title">上传图片（最多3张）</text>
+    <image-uploader
+      maxCount="{{maxImages}}"
+      images="{{images}}"
+      bindchange="onImagesChange"
+    />
+  </view>
+
+  <!-- 提交按钮 -->
+  <view class="submit-bar safe-area-bottom">
+    <button class="btn btn-primary btn-block" disabled="{{submitting || rating <= 0}}" bindtap="onSubmit">
+      {{submitting ? '提交中...' : '提交评价'}}
+    </button>
+  </view>
+</view>

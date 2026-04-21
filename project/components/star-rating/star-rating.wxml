@@ -1,0 +1,20 @@
+<view class="star-rating-wrapper">
+  <view class="star-rating {{readonly ? 'readonly' : ''}}" 
+        style="{{containerStyle}}"
+        bindtouchmove="onTouchMove"
+        bindtouchend="onTouchEnd">
+    <view class="star-item {{star.type}}" 
+          wx:for="{{stars}}" 
+          wx:for-item="star" 
+          wx:key="index"
+          style="{{star.style}}"
+          data-index="{{star.index}}"
+          data-value="{{star.value}}"
+          bindtap="onTapStar">
+      <view class="star-icon star-empty">☆</view>
+      <view class="star-icon star-full" wx:if="{{star.type !== 'empty'}}">★</view>
+      <view class="star-half-mask" wx:if="{{star.type === 'half'}}" style="width: {{star.width / 2}}rpx;"></view>
+    </view>
+  </view>
+  <text class="score-text" wx:if="{{showScore}}">{{displayScore}}</text>
+</view>

@@ -1,0 +1,57 @@
+<view class="container news-list-page">
+  <!-- 分类筛选 -->
+  <view class="category-bar">
+    <scroll-view scroll-x class="category-scroll" show-scrollbar="{{false}}">
+      <view class="category-list">
+        <view
+          class="category-item {{currentCategory === item.id ? 'active' : ''}}"
+          wx:for="{{categoryList}}"
+          wx:key="id"
+          data-id="{{item.id}}"
+          bindtap="onCategoryTap"
+        >
+          <text>{{item.name}}</text>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+
+  <!-- 资讯列表 -->
+  <view class="news-list" wx:if="{{newsList.length > 0}}">
+    <view
+      class="news-card"
+      wx:for="{{newsList}}"
+      wx:key="_id"
+      data-id="{{item._id}}"
+      bindtap="onNewsTap"
+    >
+      <view class="news-content">
+        <text class="news-title line-clamp-2">{{item.title}}</text>
+        <view class="news-meta">
+          <text class="tag tag-green" wx:if="{{item.categoryName}}">{{item.categoryName}}</text>
+          <text class="meta-text">{{item.source || '春辉综合'}}</text>
+          <text class="meta-text">{{item.viewCount || 0}}阅读</text>
+          <text class="meta-text">{{item.publishTime || item.createTime}}</text>
+        </view>
+      </view>
+      <image
+        class="news-thumb"
+        wx:if="{{item.coverImage}}"
+        src="{{item.coverImage}}"
+        mode="aspectFill"
+        lazy-load
+      />
+    </view>
+  </view>
+
+  <!-- 空状态 -->
+  <empty-state
+    wx:if="{{!loading && newsList.length === 0}}"
+    icon="📰"
+    title="暂无资讯"
+    description="该分类下暂无资讯内容"
+  />
+
+  <!-- 加载更多 -->
+  <loading-more status="{{loadMoreStatus}}" wx:if="{{newsList.length > 0}}" />
+</view>

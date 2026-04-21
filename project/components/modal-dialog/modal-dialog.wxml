@@ -1,0 +1,10 @@
+<view class="modal-mask {{visible ? 'show' : ''}}" bindtap="onMaskTap" wx:if="{{visible}}">
+  <view class="modal-content" catchtap="noop">
+    <text class="modal-title">{{title}}</text>
+    <text class="modal-body">{{content}}</text>
+    <view class="modal-actions">
+      <view class="btn cancel" wx:if="{{showCancel}}" bindtap="onCancel">{{cancelText}}</view>
+      <view class="btn confirm" style="color: {{confirmColor}}" bindtap="onConfirm">{{confirmText}}</view>
+    </view>
+  </view>
+</view>

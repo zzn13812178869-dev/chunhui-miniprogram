@@ -1,0 +1,31 @@
+<view class="image-uploader">
+  <view class="uploader-grid">
+    <view class="image-item" wx:for="{{images}}" wx:for-item="img" wx:key="index" data-index="{{index}}">
+      <image class="preview-img" 
+             src="{{img.path || img.url || img}}" 
+             mode="aspectFill" 
+             data-index="{{index}}"
+             bindtap="onPreviewImage" 
+             lazy-load />
+      
+      <view class="progress-overlay" wx:if="{{showUploadProgress && uploadProgress[index] !== undefined && uploadProgress[index] < 100}}">
+        <view class="progress-ring">
+          <text class="progress-text">{{uploadProgress[index]}}%</text>
+        </view>
+      </view>
+      
+      <view class="delete-btn" wx:if="{{!readonly}}" data-index="{{index}}" bindtap="onDeleteImage">
+        <text class="delete-icon">×</text>
+      </view>
+      
+      <view class="upload-success" wx:if="{{showUploadProgress && uploadProgress[index] >= 100}}">
+        <text class="success-icon">✓</text>
+      </view>
+    </view>
+    
+    <view class="upload-trigger" wx:if="{{images.length < maxCount && !readonly}}" bindtap="onTapUpload">
+      <view class="trigger-icon">+</view>
+      <text class="trigger-text">{{images.length}}/{{maxCount}}</text>
+    </view>
+  </view>
+</view>

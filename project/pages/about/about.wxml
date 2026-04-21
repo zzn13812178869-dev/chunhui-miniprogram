@@ -1,0 +1,28 @@
+<view class="about-page">
+  <!-- Logo区域 -->
+  <view class="header-section">
+    <image class="logo" src="/images/icons/service.png" mode="aspectFit"/>
+    <text class="app-name">{{companyName}}</text>
+    <text class="version">版本 {{version}}</text>
+  </view>
+
+  <!-- 信息列表 -->
+  <view class="info-list card">
+    <view class="info-item" wx:for="{{items}}" wx:key="label">
+      <text class="info-label">{{item.label}}</text>
+      <text class="info-value">{{item.value}}</text>
+    </view>
+  </view>
+
+  <!-- 操作按钮 -->
+  <view class="action-section">
+    <button class="action-btn" bindtap="onCallPhone">拨打客服电话</button>
+    <button class="action-btn outline" bindtap="onCopyPhone">复制客服电话</button>
+    <button class="action-btn outline" bindtap="onViewProtocol">查看用户协议</button>
+  </view>
+
+  <!-- 底部版权 -->
+  <view class="footer">
+    <text>© 2024 春辉综合服务部 版权所有</text>
+  </view>
+</view>

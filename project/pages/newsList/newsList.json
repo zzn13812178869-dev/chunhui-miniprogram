@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "同城头条",
+  "navigationBarBackgroundColor": "#43A047",
+  "navigationBarTextStyle": "white",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "loading-more": "../../components/loadingMore/loadingMore",
+    "empty-state": "../../components/emptyState/emptyState"
+  }
+}

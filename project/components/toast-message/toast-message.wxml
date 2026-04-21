@@ -1,0 +1,6 @@
+<view class="toast-mask {{visible ? 'show' : ''}}" wx:if="{{visible}}">
+  <view class="toast-content {{type}}">
+    <text class="toast-icon">{{type === 'success' ? '✓' : type === 'error' ? '✕' : type === 'loading' ? '...' : 'ℹ'}}</text>
+    <text class="toast-text">{{message}}</text>
+  </view>
+</view>

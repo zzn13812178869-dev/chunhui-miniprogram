@@ -1,0 +1,40 @@
+<view class="container pay-result-page">
+  <!-- 状态图标 -->
+  <view class="status-area">
+    <view class="status-icon {{status}}">
+      <text wx:if="{{status === 'success'}}">✓</text>
+      <text wx:else>✕</text>
+    </view>
+    <text class="status-title">{{status === 'success' ? '支付成功' : '支付失败'}}</text>
+    <text class="status-desc" wx:if="{{status === 'success'}}">您的订单已支付成功，服务人员将尽快与您联系</text>
+    <text class="status-desc" wx:else>支付过程中出现问题，请检查网络或更换支付方式后重试</text>
+  </view>
+
+  <!-- 订单摘要 -->
+  <view class="card order-summary" wx:if="{{orderInfo}}">
+    <view class="summary-row">
+      <text class="summary-label">订单编号</text>
+      <text class="summary-value">{{orderInfo.orderNo || orderId}}</text>
+    </view>
+    <view class="summary-row">
+      <text class="summary-label">服务项目</text>
+      <text class="summary-value">{{orderInfo.serviceName || '-'}}</text>
+    </view>
+    <view class="summary-row">
+      <text class="summary-label">服务人员</text>
+      <text class="summary-value">{{orderInfo.workerName || '-'}}</text>
+    </view>
+    <view class="divider"></view>
+    <view class="summary-row">
+      <text class="summary-label">支付金额</text>
+      <text class="summary-value price">¥{{orderInfo.price || orderInfo.amount || '0.00'}}</text>
+    </view>
+  </view>
+
+  <!-- 操作按钮 -->
+  <view class="action-area">
+    <button class="btn btn-primary btn-block" bindtap="onViewOrder">查看订单</button>
+    <button class="btn btn-secondary btn-block mt-md" bindtap="onGoHome">返回首页</button>
+    <button class="btn btn-outline btn-block mt-md" wx:if="{{status === 'fail'}}" bindtap="onRetryPay">重新支付</button>
+  </view>
+</view>

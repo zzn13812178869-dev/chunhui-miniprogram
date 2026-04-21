@@ -1,0 +1,27 @@
+<view class="service-section" style="background-color: {{backgroundColor}};">
+  <view class="section-header">
+    <view class="section-title-wrapper">
+      <image wx:if="{{icon}}" class="section-icon" src="{{icon}}" mode="aspectFit"/>
+      <text class="section-title">{{title}}</text>
+    </view>
+    <view class="section-more" bindtap="onMoreTap">
+      <text>更多</text>
+      <text class="arrow">></text>
+    </view>
+  </view>
+  <view class="service-list">
+    <view 
+      class="service-item" 
+      wx:for="{{services}}" 
+      wx:key="id"
+      data-index="{{index}}"
+      bindtap="onServiceTap"
+    >
+      <image class="service-icon" src="{{item.icon}}" mode="aspectFit" lazy-load/>
+      <view class="service-info">
+        <text class="service-name">{{item.name}}</text>
+        <text class="service-desc">{{item.desc}}</text>
+      </view>
+    </view>
+  </view>
+</view>

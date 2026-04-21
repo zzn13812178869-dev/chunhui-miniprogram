@@ -1,0 +1,23 @@
+<view class="search-bar" style="background-color: {{bgColor}}; border-radius: {{radius}}rpx;" bindtap="onTap">
+  <view class="search-icon">
+    <text class="iconfont icon-search">🔍</text>
+  </view>
+  <input
+    class="search-input"
+    type="text"
+    placeholder="{{placeholder}}"
+    value="{{value}}"
+    disabled="{{disabled}}"
+    confirm-type="search"
+    bindinput="onInput"
+    bindconfirm="onConfirm"
+    bindfocus="onFocus"
+    bindblur="onBlur"
+  />
+  <view class="clear-btn" wx:if="{{value}}" bindtap="onClear">
+    <text class="iconfont icon-close">✕</text>
+  </view>
+  <view class="search-btn" wx:if="{{showSearchBtn && value}}" bindtap="onConfirm">
+    <text>搜索</text>
+  </view>
+</view>

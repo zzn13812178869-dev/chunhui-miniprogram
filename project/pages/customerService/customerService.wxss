@@ -1,0 +1,141 @@
+.customer-service-page {
+  min-height: 100vh;
+  background: #F5F7F4;
+  padding: 24rpx;
+  box-sizing: border-box;
+}
+
+.service-header {
+  background: linear-gradient(135deg, #43A047, #66BB6A);
+  border-radius: 16rpx;
+  padding: 40rpx;
+  margin-bottom: 32rpx;
+  color: #FFFFFF;
+}
+
+.service-info {
+  margin-bottom: 32rpx;
+}
+
+.service-title {
+  display: block;
+  font-size: 36rpx;
+  font-weight: bold;
+  margin-bottom: 12rpx;
+}
+
+.service-time {
+  display: block;
+  font-size: 26rpx;
+  opacity: 0.9;
+}
+
+.service-actions {
+  display: flex;
+  gap: 24rpx;
+}
+
+.action-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24rpx;
+  background: rgba(255,255,255,0.2);
+  border-radius: 12rpx;
+}
+
+.action-icon {
+  font-size: 48rpx;
+  margin-bottom: 12rpx;
+}
+
+.action-item text {
+  font-size: 26rpx;
+  color: #FFFFFF;
+}
+
+.faq-section {
+  margin-top: 16rpx;
+}
+
+.section-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333333;
+  margin-bottom: 20rpx;
+  padding-left: 8rpx;
+}
+
+.faq-item {
+  background: #FFFFFF;
+  border-radius: 16rpx;
+  padding: 24rpx;
+  margin-bottom: 16rpx;
+}
+
+.faq-question {
+  display: flex;
+  align-items: center;
+}
+
+.q-mark {
+  width: 40rpx;
+  height: 40rpx;
+  background: #43A047;
+  color: #FFFFFF;
+  border-radius: 8rpx;
+  font-size: 24rpx;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 16rpx;
+  flex-shrink: 0;
+}
+
+.question-text {
+  flex: 1;
+  font-size: 28rpx;
+  color: #333333;
+}
+
+.arrow {
+  font-size: 24rpx;
+  color: #999999;
+  margin-left: 12rpx;
+  transition: transform 0.3s;
+}
+
+.arrow.expanded {
+  transform: rotate(180deg);
+}
+
+.faq-answer {
+  display: flex;
+  margin-top: 16rpx;
+  padding-top: 16rpx;
+  border-top: 1rpx solid #F0F0F0;
+}
+
+.a-mark {
+  width: 40rpx;
+  height: 40rpx;
+  background: #FF9800;
+  color: #FFFFFF;
+  border-radius: 8rpx;
+  font-size: 24rpx;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 16rpx;
+  flex-shrink: 0;
+}
+
+.answer-text {
+  flex: 1;
+  font-size: 26rpx;
+  color: #666666;
+  line-height: 1.6;
+}

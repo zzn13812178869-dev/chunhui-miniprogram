@@ -1,0 +1,32 @@
+<view class="pull-refresh"
+      style="background-color: {{backgroundColor}};"
+      bindtouchstart="onTouchStart"
+      bindtouchmove="onTouchMove"
+      bindtouchend="onTouchEnd">
+  
+  <view class="refresh-indicator" style="height: {{pullDistance}}rpx;">
+    <view class="indicator-content" style="opacity: {{progress}}; transform: scale({{0.8 + progress * 0.2}});">
+      <view class="spinner" wx:if="{{pullState === 'loading' || refreshing}}">
+        <view class="spinner-ring"></view>
+      </view>
+      <block wx:else>
+        <view class="arrow-icon {{pullState === 'ready' ? 'rotate' : ''}}">↓</view>
+        <text class="indicator-text">
+          {{pullState === 'idle' ? '' : (pullState === 'pulling' ? '下拉刷新' : '释放刷新')}}
+        </text>
+      </block>
+      <text class="loading-text" wx:if="{{pullState === 'loading' || refreshing}}">加载中...</text>
+    </view>
+  </view>
+  
+  <scroll-view class="scroll-container"
+               scroll-y
+               enhanced
+               show-scrollbar
+               bindscroll="onScroll"
+               bindscrolltolower="onScrollToLower"
+               bindscrolltoupper="onScrollToUpper"
+               style="transform: translateY({{pullDistance}}rpx);">
+    <slot></slot>
+  </scroll-view>
+</view>

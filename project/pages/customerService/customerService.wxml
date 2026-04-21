@@ -1,0 +1,43 @@
+<view class="customer-service-page">
+  <!-- 客服入口 -->
+  <view class="service-header card">
+    <view class="service-info">
+      <text class="service-title">联系客服</text>
+      <text class="service-time">工作时间：8:00 - 20:00</text>
+    </view>
+    <view class="service-actions">
+      <view class="action-item" bindtap="onCallPhone">
+        <view class="action-icon phone">📞</view>
+        <text>电话咨询</text>
+      </view>
+      <view class="action-item" bindtap="onCopyWx">
+        <view class="action-icon wx">💬</view>
+        <text>微信客服</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- FAQ列表 -->
+  <view class="faq-section">
+    <view class="section-title">常见问题</view>
+    <view class="faq-list">
+      <view 
+        class="faq-item card" 
+        wx:for="{{faqList}}" 
+        wx:key="index"
+        data-index="{{index}}"
+        bindtap="onFaqTap"
+      >
+        <view class="faq-question">
+          <text class="q-mark">Q</text>
+          <text class="question-text">{{item.question}}</text>
+          <text class="arrow {{expandedIndex === index ? 'expanded' : ''}}">▼</text>
+        </view>
+        <view class="faq-answer" wx:if="{{expandedIndex === index}}">
+          <text class="a-mark">A</text>
+          <text class="answer-text">{{item.answer}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

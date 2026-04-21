@@ -1,0 +1,39 @@
+<view class="skeleton skeleton-{{type}}">
+  <!-- card type -->
+  <block wx:if="{{type === 'card'}}">
+    <view class="skeleton-card {{animated ? 'skeleton-animated' : ''}}" wx:for="{{rowArray}}" wx:key="*this">
+      <view class="skeleton-card-rect"></view>
+      <view class="skeleton-card-info">
+        <view class="skeleton-line skeleton-line-short"></view>
+        <view class="skeleton-line skeleton-line-medium"></view>
+      </view>
+    </view>
+  </block>
+
+  <!-- list type -->
+  <block wx:if="{{type === 'list'}}">
+    <view class="skeleton-list-row {{animated ? 'skeleton-animated' : ''}}" wx:for="{{rowArray}}" wx:key="*this">
+      <view class="skeleton-avatar"></view>
+      <view class="skeleton-list-content">
+        <view class="skeleton-line"></view>
+        <view class="skeleton-line skeleton-line-short"></view>
+      </view>
+    </view>
+  </block>
+
+  <!-- detail type -->
+  <block wx:if="{{type === 'detail'}}">
+    <view class="skeleton-detail {{animated ? 'skeleton-animated' : ''}}">
+      <view class="skeleton-detail-header">
+        <view class="skeleton-avatar skeleton-avatar-large"></view>
+        <view class="skeleton-detail-meta">
+          <view class="skeleton-line"></view>
+          <view class="skeleton-line skeleton-line-short"></view>
+        </view>
+      </view>
+      <view class="skeleton-detail-body">
+        <view class="skeleton-line" wx:for="{{rowArray}}" wx:key="*this"></view>
+      </view>
+    </view>
+  </block>
+</view>

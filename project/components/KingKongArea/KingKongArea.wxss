@@ -1,0 +1,32 @@
+.kingkong-area {
+  padding: 24rpx 0;
+  background: #FFFFFF;
+  border-radius: 24rpx;
+  margin: 0 24rpx;
+}
+
+.kingkong-grid {
+  display: grid;
+  gap: 16rpx;
+  padding: 16rpx;
+}
+
+.kingkong-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 16rpx 0;
+}
+
+.kingkong-icon {
+  width: 96rpx;
+  height: 96rpx;
+  margin-bottom: 12rpx;
+}
+
+.kingkong-name {
+  font-size: 24rpx;
+  color: #333333;
+  text-align: center;
+}

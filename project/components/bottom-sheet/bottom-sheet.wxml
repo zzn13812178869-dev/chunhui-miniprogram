@@ -1,0 +1,24 @@
+<view class="bottom-sheet-mask {{_animated ? 'mask-active' : ''}}" wx:if="{{_visible}}" catchtap="onMaskTap" catchtouchmove="onMaskTouchMove">
+  <view class="bottom-sheet-wrapper {{_animated ? 'wrapper-active' : ''}}" catchtap="noop">
+    <view class="bottom-sheet-header" wx:if="{{title}}">
+      <text class="bottom-sheet-title">{{title}}</text>
+    </view>
+    <view class="bottom-sheet-body">
+      <view
+        class="bottom-sheet-action"
+        wx:for="{{actions}}"
+        wx:key="index"
+        data-index="{{index}}"
+        catchtap="onSelect"
+        style="color: {{item.color || '#333'}};"
+      >
+        <text>{{item.text}}</text>
+      </view>
+    </view>
+    <view class="bottom-sheet-cancel-wrapper" wx:if="{{showCancel}}">
+      <view class="bottom-sheet-cancel" catchtap="onCancel">
+        <text>{{cancelText}}</text>
+      </view>
+    </view>
+  </view>
+</view>

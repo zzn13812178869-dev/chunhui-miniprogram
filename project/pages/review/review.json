@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "评价服务",
+  "navigationBarBackgroundColor": "#43A047",
+  "navigationBarTextStyle": "white",
+  "usingComponents": {
+    "star-rating": "../../components/star-rating/star-rating",
+    "image-uploader": "../../components/image-uploader/image-uploader"
+  }
+}

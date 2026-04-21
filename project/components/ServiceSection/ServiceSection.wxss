@@ -1,0 +1,82 @@
+.service-section {
+  padding: 24rpx;
+  border-radius: 24rpx;
+  margin: 0 24rpx 24rpx;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+
+.section-title-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.section-icon {
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 12rpx;
+}
+
+.section-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333333;
+}
+
+.section-more {
+  display: flex;
+  align-items: center;
+  font-size: 26rpx;
+  color: #999999;
+}
+
+.arrow {
+  margin-left: 4rpx;
+}
+
+.service-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16rpx;
+}
+
+.service-item {
+  display: flex;
+  align-items: center;
+  background: #FFFFFF;
+  padding: 20rpx;
+  border-radius: 16rpx;
+  width: calc(50% - 8rpx);
+  box-sizing: border-box;
+}
+
+.service-icon {
+  width: 80rpx;
+  height: 80rpx;
+  margin-right: 16rpx;
+  flex-shrink: 0;
+}
+
+.service-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.service-name {
+  font-size: 28rpx;
+  color: #333333;
+  font-weight: 500;
+  display: block;
+  margin-bottom: 8rpx;
+}
+
+.service-desc {
+  font-size: 22rpx;
+  color: #999999;
+  display: block;
+}

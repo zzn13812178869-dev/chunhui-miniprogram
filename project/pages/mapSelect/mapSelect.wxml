@@ -1,0 +1,16 @@
+<view class="map-select-page">
+  <map
+    class="map"
+    latitude="{{latitude}}"
+    longitude="{{longitude}}"
+    markers="{{markers}}"
+    show-location
+  />
+  <view class="address-bar">
+    <text class="address-text">{{name || address || '请选择地址'}}</text>
+  </view>
+  <view class="action-bar">
+    <button class="action-btn cancel" bindtap="onCancel">取消</button>
+    <button class="action-btn confirm" bindtap="onConfirm">确认地址</button>
+  </view>
+</view>
