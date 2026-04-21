@@ -1,0 +1,208 @@
+<!--pages/mine/mine.wxml-->
+<view class="mine-page">
+  
+  <!-- 头部用户信息卡片 -->
+  <view class="header-card">
+    <view class="header-bg"></view>
+    <view class="user-info">
+      <!-- 头像 -->
+      <view class="avatar-wrapper">
+        <image 
+          class="avatar {{menuAnimating ? 'animating' : ''}}" 
+          src="{{userInfo.avatarUrl || defaultAvatar}}" 
+          mode="aspectFill"
+          bindtap="onAvatarTap"
+          bindlongpress="onAvatarLongPress"
+        />
+        <view class="avatar-hint">长按切换身份</view>
+      </view>
+      
+      <!-- 昵称 -->
+      <view class="nickname-wrapper" bindtap="onNicknameTap">
+        <text class="nickname">{{userInfo.nickName || '用户_9527'}}</text>
+        <text class="iconfont icon-edit edit-icon"></text>
+      </view>
+      
+      <!-- 角色标签 -->
+      <role-badge role="{{userRole}}" />
+    </view>
+  </view>
+
+  <!-- 功能菜单区域 -->
+  <view class="menu-section {{menuAnimating ? 'menu-fade' : ''}}">
+    
+    <!-- 普通用户菜单 -->
+    <block wx:if="{{userRole === 'user'}}">
+      <view class="menu-group">
+        <view class="menu-title">我的服务</view>
+        <view class="menu-list">
+          <view class="menu-item" wx:for="{{userMenus}}" wx:key="label" bindtap="onMenuTap" data-url="{{item.url}}" data-action="{{item.action}}">
+            <image class="menu-icon" src="{{item.icon}}" mode="aspectFit" />
+            <text class="menu-label">{{item.label}}</text>
+            <text class="iconfont icon-arrow-right menu-arrow"></text>
+          </view>
+        </view>
+      </view>
+    </block>
+
+    <!-- 工人/师傅菜单 -->
+    <block wx:if="{{userRole === 'worker'}}">
+      <view class="role-header worker-header">
+        <text class="role-title">工人师傅中心</text>
+      </view>
+      
+      <!-- 数据概览 -->
+      <view class="stats-row">
+        <view class="stats-card">
+          <text class="stats-value">5</text>
+          <text class="stats-label">今日接单</text>
+        </view>
+        <view class="stats-card">
+          <text class="stats-value">128</text>
+          <text class="stats-label">累计接单</text>
+        </view>
+        <view class="stats-card">
+          <text class="stats-value">¥3,580</text>
+          <text class="stats-label">本月收入</text>
+        </view>
+      </view>
+      
+      <view class="menu-group">
+        <view class="menu-list">
+          <view class="menu-item" wx:for="{{workerMenus}}" wx:key="label" bindtap="onMenuTap" data-url="{{item.url}}">
+            <image class="menu-icon" src="{{item.icon}}" mode="aspectFit" />
+            <text class="menu-label">{{item.label}}</text>
+            <text class="iconfont icon-arrow-right menu-arrow"></text>
+          </view>
+        </view>
+      </view>
+    </block>
+
+    <!-- 合作商菜单 -->
+    <block wx:if="{{userRole === 'partner'}}">
+      <view class="role-header partner-header">
+        <text class="role-title">合作商中心</text>
+      </view>
+      
+      <!-- 数据概览 -->
+      <view class="stats-row">
+        <view class="stats-card">
+          <text class="stats-value">12</text>
+          <text class="stats-label">本月发布</text>
+        </view>
+        <view class="stats-card">
+          <text class="stats-value">86</text>
+          <text class="stats-label">累计发布</text>
+        </view>
+        <view class="stats-card">
+          <text class="stats-value">¥1,250</text>
+          <text class="stats-label">本月收益</text>
+        </view>
+      </view>
+      
+      <view class="menu-group">
+        <view class="menu-list">
+          <view class="menu-item" wx:for="{{partnerMenus}}" wx:key="label" bindtap="onMenuTap" data-url="{{item.url}}">
+            <image class="menu-icon" src="{{item.icon}}" mode="aspectFit" />
+            <text class="menu-label">{{item.label}}</text>
+            <text class="iconfont icon-arrow-right menu-arrow"></text>
+          </view>
+        </view>
+      </view>
+    </block>
+
+    <!-- 管理员菜单 -->
+    <block wx:if="{{userRole === 'admin'}}">
+      <view class="role-header admin-header">
+        <text class="role-title">后台管理</text>
+      </view>
+      
+      <!-- 数据统计概览 -->
+      <view class="admin-stats">
+        <view class="admin-stat-card">
+          <text class="admin-stat-value">1,258</text>
+          <text class="admin-stat-label">注册用户</text>
+        </view>
+        <view class="admin-stat-card">
+          <text class="admin-stat-value">86</text>
+          <text class="admin-stat-label">工人师傅</text>
+        </view>
+        <view class="admin-stat-card">
+          <text class="admin-stat-value">24</text>
+          <text class="admin-stat-label">合作商</text>
+        </view>
+        <view class="admin-stat-card highlight">
+          <text class="admin-stat-value">5</text>
+          <text class="admin-stat-label">待审核</text>
+        </view>
+      </view>
+      
+      <view class="menu-group">
+        <view class="menu-list">
+          <view class="menu-item" wx:for="{{adminMenus}}" wx:key="label" bindtap="onMenuTap" data-url="{{item.url}}">
+            <image class="menu-icon" src="{{item.icon}}" mode="aspectFit" />
+            <text class="menu-label">{{item.label}}</text>
+            <text class="iconfont icon-arrow-right menu-arrow"></text>
+            <!-- 红点提示 -->
+            <view wx:if="{{item.label === '提现审核'}}" class="badge-dot"></view>
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+
+  <!-- 版本号 -->
+  <view class="version">春辉综合服务部 v1.0.0</view>
+</view>
+
+<!-- 身份切换 Action Sheet -->
+<view class="role-sheet-mask" wx:if="{{showRoleSheet}}" bindtap="onRoleSheetClose">
+  <view class="role-sheet" catchtap="preventBubble">
+    <view class="role-sheet-title">选择身份</view>
+    <view class="role-sheet-hint">选择身份后需输入对应账号密码</view>
+    <view 
+      class="role-option" 
+      wx:for="{{roleOptions}}" 
+      wx:key="value"
+      bindtap="onRoleSelect"
+      data-value="{{item.value}}"
+    >
+      <text class="role-option-label">{{item.label}}</text>
+      <text class="role-option-desc">{{item.desc}}</text>
+    </view>
+    <view class="role-sheet-cancel" bindtap="onRoleSheetClose">取消</view>
+  </view>
+</view>
+
+<!-- 账号密码验证弹窗 -->
+<view class="password-modal-mask" wx:if="{{showPasswordModal}}">
+  <view class="password-modal">
+    <view class="password-modal-title">身份验证</view>
+    <view class="password-modal-subtitle">请输入{{getRoleLabel(selectedRole)}}的账号密码</view>
+    
+    <view class="password-input-group">
+      <input 
+        class="password-input" 
+        placeholder="请输入账号" 
+        value="{{accountInput}}"
+        bindinput="onAccountInput"
+      />
+    </view>
+    <view class="password-input-group">
+      <input 
+        class="password-input" 
+        placeholder="请输入密码" 
+        password
+        value="{{passwordInput}}"
+        bindinput="onPasswordInput"
+      />
+    </view>
+    
+    <view class="password-modal-actions">
+      <view class="password-btn btn-cancel" bindtap="onRoleSwitchCancel">取消</view>
+      <view class="password-btn btn-confirm" bindtap="onRoleSwitchConfirm">确认切换</view>
+    </view>
+  </view>
+</view>
+
+<float-dial />

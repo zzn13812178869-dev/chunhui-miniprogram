@@ -1,0 +1,3 @@
+<view class="role-badge" style="background: {{bg}}; color: {{color}};">
+  {{label}}
+</view>

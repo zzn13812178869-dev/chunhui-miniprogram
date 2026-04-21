@@ -1,0 +1,115 @@
+.float-dial-wrapper {
+  position: fixed;
+  bottom: 60rpx;
+  right: 40rpx;
+  z-index: 999;
+}
+
+.dial-ball {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #2E7D32, #43A047);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8rpx 24rpx rgba(46, 125, 50, 0.4);
+  animation: breathe 2s ease-in-out infinite;
+}
+
+.dial-ball:active {
+  transform: scale(0.95);
+}
+
+.dial-ball text {
+  font-size: 48rpx;
+  color: #fff;
+}
+
+/* 菜单遮罩 */
+.dial-mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  animation: fadeIn 0.2s;
+}
+
+.dial-menu {
+  background: #fff;
+  border-radius: 32rpx 32rpx 0 0;
+  padding: 32rpx 0 env(safe-area-inset-bottom);
+  animation: slideUp 0.3s;
+}
+
+.dial-menu-title {
+  text-align: center;
+  font-size: 28rpx;
+  color: var(--text-tertiary);
+  margin-bottom: 16rpx;
+}
+
+.dial-option {
+  display: flex;
+  align-items: center;
+  padding: 28rpx 40rpx;
+  border-top: 1rpx solid #f0f0f0;
+  transition: background 0.2s;
+}
+
+.dial-option:active {
+  background: #f5f5f5;
+}
+
+.dial-option-icon {
+  font-size: 40rpx;
+  margin-right: 24rpx;
+}
+
+.dial-option-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.dial-option-label {
+  font-size: 30rpx;
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.dial-option-value {
+  font-size: 24rpx;
+  color: var(--text-tertiary);
+  margin-top: 4rpx;
+}
+
+.dial-cancel {
+  margin: 24rpx 40rpx 0;
+  padding: 24rpx;
+  text-align: center;
+  font-size: 30rpx;
+  color: var(--text-secondary);
+  background: #f5f5f5;
+  border-radius: 16rpx;
+}
+
+@keyframes breathe {
+  0%, 100% { transform: scale(1); box-shadow: 0 8rpx 24rpx rgba(46,125,50,0.4); }
+  50% { transform: scale(1.05); box-shadow: 0 12rpx 32rpx rgba(46,125,50,0.5); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}

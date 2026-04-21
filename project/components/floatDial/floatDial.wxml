@@ -1,0 +1,28 @@
+<view class="float-dial-wrapper">
+  <!-- 悬浮球 -->
+  <view class="dial-ball" bindtap="onTap">
+    <text class="iconfont icon-phone"></text>
+  </view>
+  
+  <!-- 拨号菜单 -->
+  <view class="dial-mask" wx:if="{{showMenu}}" bindtap="onMaskTap">
+    <view class="dial-menu" catchtap="preventBubble">
+      <view class="dial-menu-title">联系客服</view>
+      <view class="dial-option" bindtap="onCallPhone">
+        <text class="dial-option-icon">📞</text>
+        <view class="dial-option-info">
+          <text class="dial-option-label">拨打客服热线</text>
+          <text class="dial-option-value">{{servicePhone}}</text>
+        </view>
+      </view>
+      <view class="dial-option" bindtap="onCopyWx">
+        <text class="dial-option-icon">💬</text>
+        <view class="dial-option-info">
+          <text class="dial-option-label">微信客服</text>
+          <text class="dial-option-value">点击复制微信号</text>
+        </view>
+      </view>
+      <view class="dial-cancel" bindtap="onMaskTap">取消</view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,31 @@
+<view class="worker-card" bindtap="onTap">
+  <view class="worker-info">
+    <!-- 头像 -->
+    <image class="worker-avatar" src="{{worker.avatar || defaultAvatar}}" mode="aspectFill" lazy-load />
+    
+    <!-- 信息 -->
+    <view class="worker-detail">
+      <view class="worker-name-row">
+        <text class="worker-name">{{worker.name || '师傅'}}</text>
+        <text class="worker-distance" wx:if="{{worker.distance}}">· 距您{{worker.distance < 1000 ? worker.distance + 'm' : (worker.distance/1000).toFixed(1) + 'km'}}</text>
+      </view>
+      
+      <!-- 标签 -->
+      <view class="worker-tags" wx:if="{{worker.tags && worker.tags.length}}">
+        <view class="tag tag-green" wx:for="{{worker.tags}}" wx:key="*this">{{item}}</view>
+      </view>
+      
+      <!-- 评分 -->
+      <view class="worker-rating" wx:if="{{worker.rating}}">
+        <text class="rating-stars">{{'★'.repeat(Math.round(worker.rating))}}{{'☆'.repeat(5-Math.round(worker.rating))}}</text>
+        <text class="rating-score">{{worker.rating}}</text>
+        <text class="rating-count" wx:if="{{worker.orderCount}}">({{worker.orderCount}}单)</text>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 预约按钮 -->
+  <view wx:if="{{showAction}}" class="book-btn" catchtap="onBook">
+    <text>预约</text>
+  </view>
+</view>

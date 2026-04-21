@@ -1,0 +1,87 @@
+<!--pages/workerDetail/workerDetail.wxml-->
+<view class="worker-page" wx:if="{{!loading}}">
+  
+  <!-- 顶部信息区 -->
+  <view class="worker-header">
+    <view class="header-bg"></view>
+    <view class="worker-basic">
+      <image class="worker-avatar-large" src="{{worker.avatar || defaultAvatar}}" mode="aspectFill" />
+      <view class="worker-name-section">
+        <text class="worker-name-lg">{{worker.name || '师傅'}}</text>
+        <view class="worker-rating-row">
+          <text class="rating-stars-lg">{{'★'.repeat(Math.round(worker.rating || 5))}}{{'☆'.repeat(5-Math.round(worker.rating || 5))}}</text>
+          <text class="rating-score-lg">{{worker.rating || 5.0}}</text>
+          <text class="order-count">{{worker.orderCount || 0}}单</text>
+        </view>
+      </view>
+      <view class="phone-btn" bindtap="onPhoneTap" wx:if="{{worker.phone}}">
+        <text class="iconfont icon-phone"></text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 服务内容 -->
+  <view class="info-section">
+    <view class="section-title">服务项目</view>
+    <view class="skills-list">
+      <view class="skill-tag" wx:for="{{worker.skills || []}}" wx:key="*this">{{item}}</view>
+    </view>
+    
+    <!-- 收费标准 -->
+    <view class="pricing-list" wx:if="{{worker.pricing && worker.pricing.length}}">
+      <view class="pricing-item" wx:for="{{worker.pricing}}" wx:key="skill">
+        <text class="pricing-skill">{{item.skill}}</text>
+        <text class="pricing-price">¥{{item.price}}/{{item.unit}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 服务区域 -->
+  <view class="info-section" wx:if="{{worker.serviceAreas && worker.serviceAreas.length}}">
+    <view class="section-title">服务区域</view>
+    <view class="area-list">
+      <text class="area-tag" wx:for="{{worker.serviceAreas}}" wx:key="*this">{{item}}</text>
+    </view>
+  </view>
+
+  <!-- 个人简介 -->
+  <view class="info-section" wx:if="{{worker.bio}}">
+    <view class="section-title">个人简介</view>
+    <text class="bio-text">{{worker.bio}}</text>
+  </view>
+
+  <!-- 用户评价 -->
+  <view class="info-section">
+    <view class="section-title">用户评价 ({{reviews.length}})</view>
+    <view class="review-list">
+      <view class="review-item" wx:for="{{reviews}}" wx:key="id">
+        <view class="review-header">
+          <image class="review-avatar" src="{{item.avatar || defaultAvatar}}" mode="aspectFill" />
+          <view class="review-meta">
+            <text class="review-name">{{item.userName || '用户'}}</text>
+            <view class="review-rating">
+              <text class="rating-stars-sm">{{'★'.repeat(item.rating)}}{{'☆'.repeat(5-item.rating)}}</text>
+              <text class="review-time">{{item.createTime}}</text>
+            </view>
+          </view>
+        </view>
+        <text class="review-content">{{item.content}}</text>
+      </view>
+    </view>
+    <empty-state wx:if="{{reviews.length === 0}}" title="暂无评价" description="还没有用户评价" />
+  </view>
+
+  <!-- 底部占位 -->
+  <view style="height: 140rpx;"></view>
+
+  <!-- 底部预约按钮 -->
+  <view class="bottom-bar safe-area-bottom">
+    <view class="book-btn-lg" bindtap="onBookTap">
+      <text>立即预约</text>
+    </view>
+  </view>
+</view>
+
+<empty-state wx:if="{{!loading && !worker}}" title="加载失败" description="请稍后重试" />
+
+<float-dial />

@@ -1,0 +1,12 @@
+<view class="loading-more">
+  <block wx:if="{{status === 'loading'}}">
+    <view class="loading-spinner"></view>
+    <text>加载中...</text>
+  </block>
+  <block wx:elif="{{status === 'more'}}">
+    <text>上拉加载更多</text>
+  </block>
+  <block wx:elif="{{status === 'nomore'}}">
+    <text>— 到底了 —</text>
+  </block>
+</view>

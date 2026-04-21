@@ -1,0 +1,445 @@
+/* pages/index/index.wxss */
+
+.page-container {
+  min-height: 100vh;
+  background: var(--bg-primary);
+}
+
+/* ===== 顶部导航栏 ===== */
+.nav-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 0 24rpx;
+  transition: background 0.3s, box-shadow 0.3s;
+}
+
+.status-bar-placeholder {
+  width: 100%;
+}
+
+.nav-content {
+  display: flex;
+  align-items: center;
+  padding: 16rpx 0;
+  gap: 20rpx;
+}
+
+.location-btn {
+  display: flex;
+  align-items: center;
+  gap: 8rpx;
+  padding: 12rpx 20rpx;
+  border: 2rpx solid var(--accent);
+  border-radius: var(--radius-full);
+  background: rgba(255,255,255,0.9);
+  flex-shrink: 0;
+}
+
+.location-icon {
+  width: 32rpx;
+  height: 32rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.location-icon text {
+  font-size: 24rpx;
+  color: var(--accent);
+}
+
+.location-text {
+  font-size: 26rpx;
+  color: var(--text-primary);
+  font-weight: 500;
+  max-width: 140rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.search-box {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  padding: 14rpx 24rpx;
+  border-radius: var(--radius-full);
+  gap: 12rpx;
+}
+
+.search-icon {
+  font-size: 28rpx;
+  color: var(--text-tertiary);
+  flex-shrink: 0;
+}
+
+.search-placeholder {
+  font-size: 26rpx;
+  color: var(--text-tertiary);
+}
+
+/* ===== 顶部渐变背景 ===== */
+.header-gradient {
+  background: linear-gradient(180deg, #43A047 0%, #66BB6A 60%, var(--bg-primary) 100%);
+  padding-top: 120rpx;
+  padding-bottom: 40rpx;
+}
+
+/* ===== Banner轮播 ===== */
+.banner-section {
+  position: relative;
+  margin-top: 20rpx;
+}
+
+.banner-swiper {
+  height: 320rpx;
+}
+
+.banner-item {
+  height: 100%;
+  margin: 0 10rpx;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  position: relative;
+  box-shadow: var(--shadow-md);
+}
+
+.banner-img {
+  width: 100%;
+  height: 100%;
+  border-radius: var(--radius-lg);
+}
+
+.banner-title {
+  position: absolute;
+  bottom: 30rpx;
+  left: 30rpx;
+  color: #fff;
+  font-size: 32rpx;
+  font-weight: 700;
+  text-shadow: 0 2rpx 8rpx rgba(0,0,0,0.3);
+}
+
+.banner-dots {
+  display: flex;
+  justify-content: center;
+  gap: 12rpx;
+  margin-top: 20rpx;
+}
+
+.dot {
+  width: 16rpx;
+  height: 16rpx;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.4);
+  transition: all 0.3s;
+}
+
+.dot.active {
+  width: 32rpx;
+  border-radius: 8rpx;
+  background: #fff;
+}
+
+/* ===== 金刚区网格 ===== */
+.kingkong-section {
+  margin: -40rpx 24rpx 24rpx;
+  padding: 0 0 32rpx;
+  overflow: hidden;
+  position: relative;
+  z-index: 2;
+}
+
+.kingkong-header {
+  height: 80rpx;
+  background: var(--action-gradient);
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+}
+
+.kingkong-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  padding: 32rpx 16rpx 0;
+  gap: 8rpx;
+}
+
+.kingkong-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16rpx 0;
+}
+
+.kingkong-item.mt {
+  margin-top: 8rpx;
+}
+
+.kingkong-icon-wrapper {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12rpx;
+  box-shadow: 0 4rpx 12rpx rgba(67, 160, 71, 0.2);
+  background: linear-gradient(135deg, #E8F5E9, #C8E6C9);
+}
+
+.kingkong-icon {
+  width: 72rpx;
+  height: 72rpx;
+}
+
+.kingkong-name {
+  font-size: 24rpx;
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+/* ===== 同城头条 ===== */
+.news-section {
+  margin: 0 24rpx 24rpx;
+  padding: 24rpx;
+}
+
+.news-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20rpx;
+}
+
+.news-title-bar {
+  display: flex;
+  align-items: center;
+  gap: 12rpx;
+}
+
+.news-title-icon {
+  width: 8rpx;
+  height: 32rpx;
+  background: var(--accent);
+  border-radius: 4rpx;
+}
+
+.news-title {
+  font-size: 30rpx;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.news-more {
+  font-size: 24rpx;
+  color: var(--text-tertiary);
+}
+
+.news-scroll {
+  white-space: nowrap;
+}
+
+.news-list {
+  display: inline-flex;
+  gap: 16rpx;
+}
+
+.news-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 12rpx;
+  padding: 16rpx 24rpx;
+  background: var(--bg-primary);
+  border-radius: var(--radius-full);
+  white-space: nowrap;
+}
+
+.news-dot {
+  width: 16rpx;
+  height: 16rpx;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.news-item-text {
+  font-size: 24rpx;
+  color: var(--text-secondary);
+}
+
+/* ===== 密集服务橱窗 ===== */
+.showcase-section {
+  padding: 0 24rpx;
+}
+
+.showcase-block {
+  margin-bottom: 32rpx;
+}
+
+.showcase-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20rpx;
+}
+
+.showcase-title-bar {
+  display: flex;
+  align-items: center;
+  gap: 12rpx;
+}
+
+.showcase-title-line {
+  width: 8rpx;
+  height: 32rpx;
+  background: var(--accent);
+  border-radius: 4rpx;
+}
+
+.showcase-title {
+  font-size: 32rpx;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.showcase-more {
+  font-size: 24rpx;
+  color: var(--accent);
+}
+
+/* 非对称布局（家政服务） */
+.showcase-asymmetric {
+  display: flex;
+  gap: 16rpx;
+}
+
+.showcase-left-large {
+  flex: 0 0 58%;
+}
+
+.showcase-right-small {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16rpx;
+}
+
+/* 对称布局 */
+.showcase-symmetric {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16rpx;
+}
+
+.showcase-card {
+  border-radius: var(--radius-lg);
+  padding: 24rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: var(--shadow-sm);
+  position: relative;
+  overflow: hidden;
+  min-height: 200rpx;
+}
+
+.showcase-card-large {
+  height: 100%;
+  min-height: 420rpx;
+}
+
+.showcase-card-small {
+  flex: 1;
+  min-height: 200rpx;
+}
+
+.showcase-card-equal {
+  min-height: 240rpx;
+}
+
+.showcase-card-name {
+  font-size: 30rpx;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 8rpx;
+}
+
+.showcase-card-desc {
+  font-size: 22rpx;
+  color: var(--text-secondary);
+}
+
+.showcase-card-img-large {
+  position: absolute;
+  right: 20rpx;
+  bottom: 20rpx;
+  width: 160rpx;
+  height: 160rpx;
+  opacity: 0.85;
+}
+
+.showcase-card-img-small {
+  position: absolute;
+  right: 16rpx;
+  bottom: 16rpx;
+  width: 100rpx;
+  height: 100rpx;
+  opacity: 0.85;
+}
+
+.showcase-card-img-equal {
+  position: absolute;
+  right: 20rpx;
+  bottom: 20rpx;
+  width: 120rpx;
+  height: 120rpx;
+  opacity: 0.85;
+}
+
+/* ===== 卡片通用样式 ===== */
+.card {
+  background: var(--bg-secondary);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+}
+
+/* ===== 动画 ===== */
+.slide-up {
+  animation: slideUp 0.5s ease-out forwards;
+  opacity: 0;
+}
+
+.stagger-1 { animation-delay: 0.1s; }
+.stagger-2 { animation-delay: 0.2s; }
+.stagger-3 { animation-delay: 0.3s; }
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40rpx);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== 安全区域 ===== */
+.safe-bottom {
+  width: 100%;
+}
+
+/* ===== 点击反馈 ===== */
+.showcase-card:active {
+  transform: scale(0.98);
+  opacity: 0.9;
+}
+
+.kingkong-item:active {
+  opacity: 0.7;
+}
+
+.news-item:active {
+  background: #E8F5E9;
+}

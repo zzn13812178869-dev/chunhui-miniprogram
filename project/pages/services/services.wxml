@@ -1,0 +1,45 @@
+<!--pages/services/services.wxml-->
+<view class="services-page">
+  
+  <!-- 左侧分类导航 -->
+  <view class="category-sidebar">
+    <scroll-view scroll-y class="category-scroll" show-scrollbar="{{false}}">
+      <view 
+        class="category-item {{activeCategory === item.id ? 'active' : ''}}" 
+        wx:for="{{categories}}" 
+        wx:key="id"
+        bindtap="onCategoryTap"
+        data-id="{{item.id}}"
+      >
+        <view class="category-indicator"></view>
+        <text class="category-name">{{item.name}}</text>
+      </view>
+    </scroll-view>
+  </view>
+  
+  <!-- 右侧工人列表 -->
+  <view class="worker-list">
+    <scroll-view scroll-y class="worker-scroll" enable-flex>
+      <!-- 工人卡片列表 -->
+      <view class="worker-list-content">
+        <worker-card 
+          wx:for="{{workers}}" 
+          wx:key="id"
+          worker="{{item}}"
+          showAction="{{true}}"
+          bindtap="onWorkerTap"
+          bindbook="onBookTap"
+        />
+      </view>
+      
+      <!-- 空状态 -->
+      <empty-state wx:if="{{!loading && workers.length === 0}}" title="暂无师傅" description="该分类下暂时没有师傅" />
+      
+      <!-- 加载更多 -->
+      <loading-more wx:if="{{workers.length > 0}}" status="{{hasMore ? 'more' : 'nomore'}}" />
+    </scroll-view>
+  </view>
+  
+</view>
+
+<float-dial />

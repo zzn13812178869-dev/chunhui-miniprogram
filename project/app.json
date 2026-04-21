@@ -1,0 +1,72 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/services/services",
+    "pages/mine/mine",
+    "pages/workerDetail/workerDetail",
+    "pages/orderCreate/orderCreate",
+    "pages/orderDetail/orderDetail",
+    "pages/orders/orders",
+    "pages/chat/chat",
+    "pages/chatList/chatList",
+    "pages/searchResult/searchResult",
+    "pages/workerProfile/workerProfile",
+    "pages/orderHall/orderHall",
+    "pages/income/income",
+    "pages/withdrawApply/withdrawApply",
+    "pages/publish/publish",
+    "pages/myPosts/myPosts",
+    "pages/partnerCenter/partnerCenter",
+    "pages/adminDashboard/adminDashboard",
+    "pages/userManage/userManage",
+    "pages/workerManage/workerManage",
+    "pages/orderManage/orderManage",
+    "pages/postManage/postManage",
+    "pages/withdrawManage/withdrawManage",
+    "pages/bannerManage/bannerManage"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#43A047",
+    "navigationBarTitleText": "春辉综合服务部",
+    "navigationBarTextStyle": "white",
+    "enablePullDownRefresh": true,
+    "backgroundColor": "#F5F7F4"
+  },
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#43A047",
+    "backgroundColor": "#FFFFFF",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/icons/tab-home.png",
+        "selectedIconPath": "images/icons/tab-home-active.png"
+      },
+      {
+        "pagePath": "pages/services/services",
+        "text": "全部服务",
+        "iconPath": "images/icons/tab-service.png",
+        "selectedIconPath": "images/icons/tab-service-active.png"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "text": "我的",
+        "iconPath": "images/icons/tab-mine.png",
+        "selectedIconPath": "images/icons/tab-mine-active.png"
+      }
+    ]
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于推荐附近的服务师傅"
+    }
+  },
+  "requiredBackgroundModes": [],
+  "cloud": true,
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents",
+  "usingComponents": {}
+}

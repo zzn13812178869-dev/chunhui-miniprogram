@@ -1,0 +1,262 @@
+/* pages/workerDetail/workerDetail.wxss */
+
+.worker-page {
+  min-height: 100vh;
+  background: var(--bg-primary);
+}
+
+/* ===== 顶部信息区 ===== */
+.worker-header {
+  position: relative;
+  padding-bottom: 40rpx;
+}
+
+.header-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 240rpx;
+  background: var(--action-gradient);
+  border-radius: 0 0 40rpx 40rpx;
+}
+
+.worker-basic {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 60rpx 32rpx 0;
+}
+
+.worker-avatar-large {
+  width: 140rpx;
+  height: 140rpx;
+  border-radius: 50%;
+  border: 4rpx solid #fff;
+  box-shadow: 0 4rpx 16rpx rgba(0,0,0,0.1);
+  margin-right: 24rpx;
+  flex-shrink: 0;
+}
+
+.worker-name-section {
+  flex: 1;
+}
+
+.worker-name-lg {
+  font-size: 40rpx;
+  font-weight: 700;
+  color: #fff;
+  display: block;
+  margin-bottom: 12rpx;
+}
+
+.worker-rating-row {
+  display: flex;
+  align-items: center;
+  gap: 12rpx;
+}
+
+.rating-stars-lg {
+  font-size: 24rpx;
+  color: #FFD700;
+}
+
+.rating-score-lg {
+  font-size: 28rpx;
+  color: #fff;
+  font-weight: 600;
+}
+
+.order-count {
+  font-size: 24rpx;
+  color: rgba(255,255,255,0.8);
+}
+
+.phone-btn {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(10rpx);
+}
+
+.phone-btn text {
+  font-size: 36rpx;
+  color: #fff;
+}
+
+/* ===== 信息版块 ===== */
+.info-section {
+  margin: 0 24rpx 24rpx;
+  padding: 24rpx;
+  background: #fff;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.section-title {
+  font-size: 30rpx;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 20rpx;
+}
+
+/* 技能标签 */
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12rpx;
+}
+
+.skill-tag {
+  padding: 8rpx 20rpx;
+  background: var(--accent-light);
+  color: var(--accent);
+  border-radius: 999rpx;
+  font-size: 24rpx;
+  font-weight: 500;
+}
+
+/* 收费标准 */
+.pricing-list {
+  margin-top: 20rpx;
+  border-top: 1rpx solid var(--border-light);
+  padding-top: 20rpx;
+}
+
+.pricing-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16rpx 0;
+  border-bottom: 1rpx solid var(--border-light);
+}
+
+.pricing-skill {
+  font-size: 28rpx;
+  color: var(--text-primary);
+}
+
+.pricing-price {
+  font-size: 30rpx;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+/* 服务区域 */
+.area-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12rpx;
+}
+
+.area-tag {
+  padding: 8rpx 20rpx;
+  background: #E3F2FD;
+  color: #1976D2;
+  border-radius: 999rpx;
+  font-size: 24rpx;
+}
+
+/* 个人简介 */
+.bio-text {
+  font-size: 28rpx;
+  color: var(--text-secondary);
+  line-height: 1.8;
+}
+
+/* ===== 评价 ===== */
+.review-list {
+  margin-top: 8rpx;
+}
+
+.review-item {
+  padding: 20rpx 0;
+  border-bottom: 1rpx solid var(--border-light);
+}
+
+.review-item:last-child {
+  border-bottom: none;
+}
+
+.review-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12rpx;
+}
+
+.review-avatar {
+  width: 64rpx;
+  height: 64rpx;
+  border-radius: 50%;
+  margin-right: 16rpx;
+  flex-shrink: 0;
+  background: #f0f0f0;
+}
+
+.review-meta {
+  flex: 1;
+}
+
+.review-name {
+  font-size: 28rpx;
+  font-weight: 500;
+  color: var(--text-primary);
+  display: block;
+}
+
+.review-rating {
+  display: flex;
+  align-items: center;
+  gap: 12rpx;
+  margin-top: 4rpx;
+}
+
+.rating-stars-sm {
+  font-size: 20rpx;
+  color: #FF9800;
+}
+
+.review-time {
+  font-size: 22rpx;
+  color: var(--text-tertiary);
+}
+
+.review-content {
+  font-size: 26rpx;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  padding-left: 80rpx;
+}
+
+/* ===== 底部预约栏 ===== */
+.bottom-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20rpx 32rpx;
+  background: #fff;
+  box-shadow: 0 -4rpx 20rpx rgba(0,0,0,0.05);
+  z-index: 100;
+}
+
+.book-btn-lg {
+  width: 100%;
+  height: 88rpx;
+  background: var(--action-gradient);
+  color: #fff;
+  border-radius: 999rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32rpx;
+  font-weight: 600;
+}
+
+.book-btn-lg:active {
+  opacity: 0.85;
+}

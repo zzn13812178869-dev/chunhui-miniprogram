@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "status-tag": "/components/statusTag/statusTag",
+    "float-dial": "/components/floatDial/floatDial"
+  },
+  "navigationBarTitleText": "师傅详情",
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark"
+}

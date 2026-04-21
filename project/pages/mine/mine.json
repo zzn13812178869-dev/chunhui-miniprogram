@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "float-dial": "/components/floatDial/floatDial",
+    "role-badge": "/components/roleBadge/roleBadge"
+  },
+  "navigationStyle": "custom",
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark"
+}

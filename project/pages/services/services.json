@@ -1,0 +1,11 @@
+{
+  "usingComponents": {
+    "worker-card": "/components/workerCard/workerCard",
+    "float-dial": "/components/floatDial/floatDial",
+    "empty-state": "/components/emptyState/emptyState",
+    "loading-more": "/components/loadingMore/loadingMore"
+  },
+  "navigationBarTitleText": "全部服务",
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark"
+}

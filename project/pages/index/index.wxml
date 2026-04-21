@@ -1,0 +1,133 @@
+<!--pages/index/index.wxml-->
+<view class="page-container">
+  
+  <!-- 顶部吸附导航栏 -->
+  <view class="nav-bar" style="background: {{navBg}}; box-shadow: {{navOpacity > 0.8 ? '0 2rpx 10rpx rgba(0,0,0,0.05)' : 'none'}};">
+    <view class="nav-content">
+      <!-- 地图选址按钮 -->
+      <view class="location-btn" bindtap="onChooseLocation">
+        <view class="location-icon">
+          <text class="iconfont icon-location"></text>
+        </view>
+        <text class="location-text">{{location.address}}</text>
+        <text class="iconfont icon-arrow-down"></text>
+      </view>
+      <!-- 搜索框 -->
+      <view class="search-box" style="background: {{searchBg}};" bindtap="onSearchTap">
+        <text class="iconfont icon-search search-icon"></text>
+        <text class="search-placeholder">请输入搜索关键词</text>
+      </view>
+    </view>
+    <!-- 状态栏占位 -->
+    <view class="status-bar-placeholder" style="height: {{systemInfo.statusBarHeight}}px;"></view>
+  </view>
+
+  <!-- 顶部绿色渐变背景区（导航栏+Banner背景） -->
+  <view class="header-gradient">
+    
+    <!-- Banner轮播区 -->
+    <view class="banner-section">
+      <swiper class="banner-swiper" indicator-dots="{{false}}" autoplay="{{true}}" interval="4000" duration="500" circular="{{true}}" bindchange="onBannerChange" previous-margin="40rpx" next-margin="40rpx">
+        <swiper-item wx:for="{{banners}}" wx:key="id" bindtap="onBannerTap" data-index="{{index}}">
+          <view class="banner-item">
+            <image class="banner-img" src="{{item.imageUrl}}" mode="aspectFill" lazy-load="{{true}}" />
+            <view class="banner-title">{{item.title}}</view>
+          </view>
+        </swiper-item>
+      </swiper>
+      <!-- 自定义指示点 -->
+      <view class="banner-dots">
+        <view class="dot {{index === currentBanner ? 'active' : ''}}" wx:for="{{banners}}" wx:key="*this"></view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 金刚区网格 -->
+  <view class="kingkong-section card slide-up">
+    <view class="kingkong-header"></view>
+    <view class="kingkong-grid">
+      <view class="kingkong-item {{index >= 4 ? 'mt' : ''}}" wx:for="{{homeServices}}" wx:key="id" bindtap="onServiceTap" data-id="{{item.id}}" data-url="{{item.url}}">
+        <view class="kingkong-icon-wrapper">
+          <image class="kingkong-icon" src="{{item.icon}}" mode="aspectFit" />
+        </view>
+        <text class="kingkong-name">{{item.name}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 同城头条资讯 -->
+  <view class="news-section card slide-up stagger-1">
+    <view class="news-header">
+      <view class="news-title-bar">
+        <view class="news-title-icon"></view>
+        <text class="news-title">同城头条</text>
+      </view>
+      <text class="news-more" bindtap="onNewsTap">更多 ></text>
+    </view>
+    <scroll-view class="news-scroll" scroll-x="{{true}}" show-scrollbar="{{false}}">
+      <view class="news-list">
+        <view class="news-item" wx:for="{{newsList}}" wx:key="id" bindtap="onNewsTap" data-id="{{item.id}}">
+          <view class="news-dot" style="background: {{item.color}};"></view>
+          <text class="news-item-text">{{item.title}}</text>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+
+  <!-- 密集服务橱窗 -->
+  <view class="showcase-section">
+    <view class="showcase-block slide-up stagger-2" wx:for="{{serviceSections}}" wx:key="title" wx:for-index="sIdx" wx:for-item="section">
+      <!-- 版块标题栏 -->
+      <view class="showcase-header">
+        <view class="showcase-title-bar">
+          <view class="showcase-title-line"></view>
+          <text class="showcase-title">{{section.title}}</text>
+        </view>
+        <text class="showcase-more" bindtap="onViewMore" data-title="{{section.title}}">查看更多</text>
+      </view>
+      
+      <!-- 版块内容 -->
+      <view class="showcase-body {{section.title === '家政服务' ? 'showcase-asymmetric' : 'showcase-symmetric'}}">
+        <!-- 家政服务：左大右小 -->
+        <block wx:if="{{section.title === '家政服务'}}">
+          <view class="showcase-left-large">
+            <view class="showcase-card showcase-card-large" style="background: {{section.color}};" bindtap="onSectionItemTap" data-id="{{section.items[0].id}}">
+              <view class="showcase-card-info">
+                <text class="showcase-card-name">{{section.items[0].name}}</text>
+                <text class="showcase-card-desc">{{section.items[0].desc}}</text>
+              </view>
+              <image class="showcase-card-img-large" src="{{section.items[0].icon}}" mode="aspectFit" />
+            </view>
+          </view>
+          <view class="showcase-right-small">
+            <view class="showcase-card showcase-card-small" style="background: {{section.color}};" wx:for="{{section.items}}" wx:key="id" wx:for-index="idx" wx:if="{{idx > 0}}" bindtap="onSectionItemTap" data-id="{{item.id}}">
+              <view class="showcase-card-info">
+                <text class="showcase-card-name">{{item.name}}</text>
+                <text class="showcase-card-desc">{{item.desc}}</text>
+              </view>
+              <image class="showcase-card-img-small" src="{{item.icon}}" mode="aspectFit" />
+            </view>
+          </view>
+        </block>
+        
+        <!-- 维修安装 / 便民信息：左右对称 -->
+        <block wx:else>
+          <view class="showcase-card showcase-card-equal" style="background: {{section.color}};" wx:for="{{section.items}}" wx:key="id" bindtap="onSectionItemTap" data-id="{{item.id}}">
+            <view class="showcase-card-info">
+              <text class="showcase-card-name">{{item.name}}</text>
+              <text class="showcase-card-desc">{{item.desc}}</text>
+            </view>
+            <image class="showcase-card-img-equal" src="{{item.icon}}" mode="aspectFit" />
+          </view>
+        </block>
+      </view>
+    </view>
+  </view>
+
+  <!-- 底部安全区域 -->
+  <view class="safe-bottom" style="height: 60rpx;"></view>
+
+</view>
+
+<!-- 悬浮拨号球 -->
+<float-dial />

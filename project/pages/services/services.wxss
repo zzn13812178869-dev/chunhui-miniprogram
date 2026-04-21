@@ -1,0 +1,72 @@
+/* pages/services/services.wxss */
+
+.services-page {
+  display: flex;
+  height: 100vh;
+  background: var(--bg-primary);
+}
+
+/* ===== 左侧分类导航 ===== */
+.category-sidebar {
+  width: 180rpx;
+  flex-shrink: 0;
+  background: #F8F8F8;
+  height: 100%;
+}
+
+.category-scroll {
+  height: 100%;
+}
+
+.category-item {
+  display: flex;
+  align-items: center;
+  padding: 30rpx 20rpx;
+  position: relative;
+  transition: all 0.2s;
+}
+
+.category-indicator {
+  width: 6rpx;
+  height: 32rpx;
+  border-radius: 3rpx;
+  background: transparent;
+  margin-right: 12rpx;
+  flex-shrink: 0;
+  transition: background 0.2s;
+}
+
+.category-name {
+  font-size: 26rpx;
+  color: #666;
+  transition: all 0.2s;
+}
+
+/* 选中状态 */
+.category-item.active {
+  background: #fff;
+}
+
+.category-item.active .category-indicator {
+  background: var(--accent);
+}
+
+.category-item.active .category-name {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+/* ===== 右侧工人列表 ===== */
+.worker-list {
+  flex: 1;
+  height: 100%;
+  overflow: hidden;
+}
+
+.worker-scroll {
+  height: 100%;
+}
+
+.worker-list-content {
+  padding: 16rpx;
+}

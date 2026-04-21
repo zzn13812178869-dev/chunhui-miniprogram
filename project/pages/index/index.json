@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "float-dial": "/components/floatDial/floatDial"
+  },
+  "navigationStyle": "custom",
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark"
+}
