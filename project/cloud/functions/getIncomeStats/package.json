@@ -1,7 +1,6 @@
 {
   "name": "getIncomeStats",
   "version": "1.0.0",
-  "description": "收益统计",
   "main": "index.js",
   "dependencies": {
     "wx-server-sdk": "latest"

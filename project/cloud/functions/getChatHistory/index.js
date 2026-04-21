@@ -10,14 +10,9 @@ exports.main = async (event, context) => {
   }
 
   try {
-    // 查询总消息数
-    const countRes = await db.collection('messages').where({ chatId }).count();
-    const total = countRes.total;
-
-    // 分页查询消息，按时间正序（旧消息在前）
-    const messagesRes = await db.collection('messages')
+    const res = await db.collection('messages')
       .where({ chatId })
-      .orderBy('createTime', 'asc')
+      .orderBy('createTime', 'desc')
       .skip((page - 1) * pageSize)
       .limit(pageSize)
       .get();
@@ -25,14 +20,14 @@ exports.main = async (event, context) => {
     return {
       code: 0,
       data: {
-        list: messagesRes.data || [],
-        total,
+        messages: res.data.reverse(),  // 按时间正序
         page,
         pageSize
-      }
+      },
+      message: 'success'
     };
   } catch (err) {
     console.error('获取聊天记录失败:', err);
-    return { code: 500, message: '服务器错误', error: err.message };
+    return { code: 500, message: err.message };
   }
 };

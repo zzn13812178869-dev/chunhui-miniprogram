@@ -1,7 +1,6 @@
 {
   "name": "getChatList",
   "version": "1.0.0",
-  "description": "获取会话列表",
   "main": "index.js",
   "dependencies": {
     "wx-server-sdk": "latest"
